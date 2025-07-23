@@ -27,4 +27,5 @@ def test_saludo(client):
     assert data['saludo'] == '¡Hola Rox!'
 
 def test_multiplicar(): assert multiplicar(2, 3) == 6
+def test_multiplicar(): assert multiplicar(4, 3) == 12
 def test_es_par(): assert es_par(4)
