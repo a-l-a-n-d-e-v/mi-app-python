@@ -33,7 +33,7 @@ jobs:
 
     - name: Instalar dependencias
       run: |
-       python -m venv deploy && source deploy/bin/activate && pip install -r requirements.txt
+        python -m venv deploy && source deploy/bin/activate && pip install -r requirements.txt
 
     - name: Ejecutar tests
       run: |
