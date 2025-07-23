@@ -9,7 +9,6 @@ on:
 jobs:
   test:
     runs-on: [linux-x64-self-hosted]
-
     steps:
     - name: Checkout
       uses: actions/checkout@v4
@@ -22,7 +21,7 @@ jobs:
             libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev \
             libffi-dev liblzma-dev
 
-  - name: Instalar pyenv y Python 3.11.2
+    - name: Instalar pyenv y Python 3.11.2
       run: |
         curl https://pyenv.run | bash
         export PATH="$HOME/.pyenv/bin:$PATH"
