@@ -14,10 +14,23 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v4
 
-    - name: Configurar Python
-      uses: actions/setup-python@v5
-      with:
-        python-version: '3.11'
+    - name: Instalar dependencias
+      run: |
+        apt update
+        apt install -y curl git build-essential libssl-dev zlib1g-dev \
+            libbz2-dev libreadline-dev libsqlite3-dev wget llvm \
+            libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev \
+            libffi-dev liblzma-dev
+
+  - name: Instalar pyenv y Python 3.11.2
+      run: |
+        curl https://pyenv.run | bash
+        export PATH="$HOME/.pyenv/bin:$PATH"
+        eval "$(pyenv init --path)"
+        eval "$(pyenv virtualenv-init -)"
+        pyenv install 3.11.2
+        pyenv global 3.11.2
+        python --version
 
     - name: Instalar dependencias
       run: |
