@@ -33,15 +33,15 @@ jobs:
 
     - name: Instalar dependencias
       run: |
-        pip install -r requirements.txt
+       python -m venv deploy && source deploy/bin/activate && pip install -r requirements.txt
 
     - name: Ejecutar tests
       run: |
-        PYTHONPATH=$PYTHONPATH:. pytest tests/ -v
+        source deploy/bin/activate && PYTHONPATH=$PYTHONPATH:. pytest tests/ -v
 
     - name: Ejecutar con cobertura
       run: |
-        PYTHONPATH=$PYTHONPATH:. pytest --cov=app --cov-report=term --cov-report=html
+        source deploy/bin/activate && PYTHONPATH=$PYTHONPATH:. pytest --cov=app --cov-report=term --cov-report=html
 
     - name: Guardar reporte
       uses: actions/upload-artifact@v4
